@@ -15,6 +15,8 @@
             --text-gray: #666666;
             --black-button: #111111;
             --primary-blue: #007aff;
+            --uplus-dark: #333333;
+            --bg-soft-gray: #F8F9FA;
         }
 
         * {
@@ -58,9 +60,9 @@
             background: linear-gradient(135deg, #fff 0%, #fff0f6 100%);
             text-align: center;
         }
-        .hero h1 { font-size: 2.2rem; font-weight: 800; line-height: 1.2; margin-bottom: 20px; }
+        .hero h1 { font-size: 2.2rem; font-weight: 800; line-height: 1.2; margin-bottom: 20px; word-break: keep-all; }
         .hero h1 span { color: var(--uplus-magenta); }
-        .hero p { font-size: 1rem; color: #666; margin-bottom: 30px; }
+        .hero p { font-size: 1.1rem; color: #444; margin-bottom: 30px; font-weight: 500; word-break: keep-all; }
 
         .btn-main {
             display: inline-block;
@@ -86,6 +88,47 @@
 
         section { padding: 60px 20px; max-width: 1200px; margin: 0 auto; text-align: center; }
         section h2 { font-size: 1.8rem; margin-bottom: 30px; }
+
+        /* Internet Section - Clean & Modern Style */
+        .internet-banner {
+            background: #ffffff;
+            border: 2px solid #f2f2f2;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-align: left;
+            max-width: 1000px;
+            gap: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+        }
+        .internet-content h3 { font-size: 1.5rem; color: var(--uplus-black); margin-bottom: 10px; letter-spacing: -0.5px; }
+        .internet-content h3 span { color: var(--uplus-magenta); position: relative; }
+        .internet-content h3 span::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: rgba(230, 0, 126, 0.1);
+            z-index: -1;
+        }
+        .internet-content p { font-size: 1.1rem; color: #555; }
+        .internet-content p strong { color: var(--uplus-black); font-weight: 700; }
+        .btn-internet {
+            background-color: var(--uplus-black);
+            color: white;
+            padding: 18px 36px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+        }
+        .btn-internet:hover { background-color: var(--uplus-magenta); transform: translateY(-2px); }
 
         /* Model Grid */
         .model-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
@@ -160,6 +203,16 @@
         }
         .status-item .model { color: var(--primary-blue); font-weight: 600; text-align: center; }
         .status-item .time { color: #ff5252; font-weight: 600; text-align: right; }
+        .status-notice {
+            padding: 10px;
+            font-size: 10px;
+            color: #999;
+            text-align: center;
+            background: #fcfcfc;
+            border-top: 1px solid #f5f5f5;
+            white-space: nowrap;
+            letter-spacing: -0.5px;
+        }
 
         /* Store Section */
         .store-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
@@ -170,6 +223,20 @@
         .store-name { font-weight: 700; font-size: 1rem; margin-bottom: 8px; display: flex; align-items: center; }
         .store-name i { color: var(--uplus-magenta); margin-right: 6px; font-size: 14px; }
         .store-link { color: var(--uplus-magenta); font-size: 0.85rem; font-weight: 600; }
+
+        /* Trust Banner */
+        .trust-banner {
+            background-color: var(--bg-soft-gray);
+            padding: 35px 25px;
+            border-radius: 16px;
+            margin: 20px auto 45px;
+            max-width: 850px;
+            border: 1px solid #E9ECEF;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        .trust-banner h3 { color: #343a40; margin-bottom: 12px; font-size: 1.35rem; font-weight: 700; }
+        .trust-banner p { font-size: 1rem; color: #666; word-break: keep-all; line-height: 1.6; }
+        .trust-banner p strong { color: var(--uplus-magenta); font-weight: 600; }
 
         /* Footer */
         footer {
@@ -194,10 +261,11 @@
             flex: 1; padding: 18px 0; border: none;
             text-decoration: none; font-weight: 700;
             display: flex; align-items: center; justify-content: center;
-            font-size: 16px; background-color: var(--black-button); color: #fff;
+            font-size: 16px; color: #fff;
             cursor: pointer;
         }
-        .btn-fixed:first-child { border-right: 1px solid #333; }
+        .btn-kakao-fixed { background-color: var(--uplus-magenta); }
+        .btn-call-fixed { background-color: var(--uplus-dark); border-left: 1px solid rgba(255,255,255,0.1); }
         .btn-fixed i { margin-right: 8px; }
 
         /* Modal */
@@ -227,6 +295,12 @@
 
             .hero { margin-top: 110px; padding: 40px 20px; }
             .hero h1 { font-size: 1.8rem; }
+            .hero p { font-size: 1rem; }
+
+            .internet-banner { flex-direction: column; text-align: center; padding: 35px 20px; border-radius: 20px; }
+            .internet-content h3 { font-size: 1.35rem; }
+            .internet-content p { font-size: 1rem; }
+            .btn-internet { width: 100%; padding: 16px; font-size: 15px; }
 
             .benefit-list {
                 display: flex;
@@ -250,6 +324,10 @@
 
             .status-item { grid-template-columns: 50px 1fr 60px 45px; font-size: 12px; }
             .status-item .phone { display: none; }
+            
+            .trust-banner { padding: 25px 15px; margin: 10px 0 30px; }
+            .trust-banner h3 { font-size: 1.1rem; }
+            .trust-banner p { font-size: 0.85rem; }
         }
     </style>
 </head>
@@ -267,8 +345,8 @@
 
     <section class="hero">
         <span class="badge-main">U+만의 단독 특별 지원금</span>
-        <h1>핸드폰 바꿀 땐,<br><span>제대로 대우받으세요.</span></h1>
-        <p>복잡한 요금제 설명은 끝!<br>가장 저렴한 설계로 딱 맞춰드립니다.</p>
+        <h1>휴대폰, <span>당신이 원하는 방식으로</span></h1>
+        <p>전주 최저가 도전! 친절 상담 약속드립니다.</p>
         <a href="https://open.kakao.com/o/sdWqcMOg" class="btn-main">지금 바로 견적 문의하기</a>
         <br>
         <a href="https://open.kakao.com/o/sdWqcMOg" class="btn-kakao-main"><i class="fa-solid fa-comment"></i> 카톡 1:1 빠른 상담</a>
@@ -324,6 +402,19 @@
         </div>
     </section>
 
+    <!-- 인터넷 가입 안내 섹션 (색상 및 스타일 개선) -->
+    <section id="internet-guide" style="padding-top: 40px; padding-bottom: 20px;">
+        <div class="internet-banner">
+            <div class="internet-content">
+                <h3>📢 <span>오늘만 이 가격!</span> 인터넷 비밀 지원금 폭탄</h3>
+                <p>가입 즉시 <strong>현금 사은품 최대 지급</strong>, 지금 바로 확인하세요</p>
+            </div>
+            <a href="https://open.kakao.com/o/sdWqcMOg" class="btn-internet" target="_blank">
+                혜택 확인하기 <i class="fa-solid fa-chevron-right" style="margin-left: 5px;"></i>
+            </a>
+        </div>
+    </section>
+
     <section class="review-section" id="reviews">
         <h2>실제 고객 후기</h2>
         <div class="review-grid">
@@ -359,24 +450,31 @@
         </div>
     </section>
 
-    <section id="location">
-        <h2>매장 오시는 길</h2>
+    <section id="trust" style="background-color: #fafafa; padding-bottom: 0;">
+        <div class="trust-banner">
+            <h3>💡 속임수 없는 투명한 조건</h3>
+            <p>고가 요금제 강요도, 카드 발급 권유도 없이 오직 <strong>고객님께 가장 유리한 조건</strong>만을 제안합니다.</p>
+        </div>
+        <h2 id="location-anchor">가까운 매장에서 만나요</h2>
+    </section>
+
+    <section id="location" style="padding-top: 20px;">
         <div class="store-grid">
-            <a href="https://map.naver.com/p/entry/place/1159387826?placePath=/home?entry=plt&from=map&fromPanelNum=1&additionalHeight=76&timestamp=202604221531&locale=ko&svcName=map_pcv5&searchType=place&lng=127.0722085&lat=35.8737057&c=15.00,0,0,0,dh" class="store-card" target="_blank">
+            <a href="https://map.naver.com/p/entry/place/1159387826" class="store-card" target="_blank">
                 <div class="store-img" style="background-image: url('반월점.jpg');"></div>
                 <div class="store-info">
                     <div class="store-name"><i class="fa-solid fa-location-dot"></i> 전주 반월점</div>
                     <div class="store-link">매장 정보 보기 ></div>
                 </div>
             </a>
-            <a href="https://map.naver.com/p/entry/place/1888376324?placePath=/home?entry=plt&from=map&fromPanelNum=1&additionalHeight=76&timestamp=202604221531&locale=ko&svcName=map_pcv5&searchType=place&lng=127.0771326&lat=35.8429860&c=15.00,0,0,0,dh" class="store-card" target="_blank">
+            <a href="https://map.naver.com/p/entry/place/1888376324" class="store-card" target="_blank">
                 <div class="store-img" style="background-image: url('만성점.jpg');"></div>
                 <div class="store-info">
                     <div class="store-name"><i class="fa-solid fa-location-dot"></i> 전주 만성점</div>
                     <div class="store-link">매장 정보 보기 ></div>
                 </div>
             </a>
-            <a href="https://map.naver.com/p/entry/place/2020567383?placePath=/home?entry=plt&from=map&fromPanelNum=1&additionalHeight=76&timestamp=202604221531&locale=ko&svcName=map_pcv5&searchType=place&lng=127.1172685&lat=35.8255209&c=15.00,0,0,0,dh" class="store-card" target="_blank">
+            <a href="https://map.naver.com/p/entry/place/2020567383" class="store-card" target="_blank">
                 <div class="store-img" style="background-image: url('서신점.jpg');"></div>
                 <div class="store-info">
                     <div class="store-name"><i class="fa-solid fa-location-dot"></i> 전주 서신점</div>
@@ -392,10 +490,10 @@
     </footer>
 
     <div class="fixed-bottom">
-        <a href="https://open.kakao.com/o/sdWqcMOg" class="btn-fixed">
+        <a href="https://open.kakao.com/o/sdWqcMOg" class="btn-fixed btn-kakao-fixed">
             <i class="fa-solid fa-comment"></i> 카톡 상담하기
         </a>
-        <button type="button" class="btn-fixed" onclick="openModal()">
+        <button type="button" class="btn-fixed btn-call-fixed" onclick="openModal()">
             <i class="fa-solid fa-phone"></i> 전화 문의하기
         </button>
     </div>
