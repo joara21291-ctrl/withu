@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LG U+ 공식인증대리점 - 최신폰 상담센터</title>
-    <!-- 폰트: 프리텐다드 사용 (깔끔한 고딕체) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
-    <!-- 아이콘 사용 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
@@ -15,6 +13,7 @@
             --light-gray: #F5F5F7;
             --white: #FFFFFF;
             --text-gray: #666666;
+            --black-button: #111111;
         }
 
         * {
@@ -29,9 +28,9 @@
             color: var(--uplus-black);
             line-height: 1.6;
             scroll-behavior: smooth;
+            padding-bottom: 70px;
         }
 
-        /* 헤더 */
         header {
             position: fixed;
             top: 0;
@@ -46,48 +45,22 @@
             align-items: center;
         }
 
-        .logo {
-            font-size: 1.2rem;
-            font-weight: 800;
-            color: var(--uplus-magenta);
-            text-decoration: none;
-        }
+        .logo { font-size: 1.2rem; font-weight: 800; color: var(--uplus-magenta); text-decoration: none; }
+        nav a { margin-left: 20px; text-decoration: none; color: var(--uplus-black); font-weight: 500; font-size: 0.9rem; }
 
-        nav a {
-            margin-left: 20px;
-            text-decoration: none;
-            color: var(--uplus-black);
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-
-        /* 메인 광고 (Hero) */
+        /* Hero Section */
         .hero {
             margin-top: 60px;
             padding: 80px 20px;
             background: linear-gradient(135deg, #fff 0%, #fff0f6 100%);
             text-align: center;
         }
+        .hero h1 { font-size: 2.5rem; font-weight: 800; line-height: 1.2; margin-bottom: 20px; }
+        .hero h1 span { color: var(--uplus-magenta); }
+        .hero p { font-size: 1.1rem; color: #666; margin-bottom: 30px; }
 
-        .hero h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 span {
-            color: var(--uplus-magenta);
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-            color: #666;
-            margin-bottom: 30px;
-        }
-
-        /* 버튼 스타일 */
-        .btn {
+        /* Button Styles */
+        .btn-main {
             display: inline-block;
             padding: 16px 32px;
             border-radius: 50px;
@@ -95,181 +68,147 @@
             text-decoration: none;
             transition: transform 0.2s;
             cursor: pointer;
-        }
-
-        .btn-magenta {
             background-color: var(--uplus-magenta);
             color: white;
         }
-
-        .btn-kakao {
+        .btn-kakao-main {
+            display: inline-block;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
             background-color: #FEE500;
             color: #3C1E1E;
             margin-top: 10px;
         }
 
-        .btn:hover {
-            transform: scale(1.05);
-        }
+        section { padding: 60px 20px; max-width: 1200px; margin: 0 auto; text-align: center; }
+        section h2 { font-size: 1.8rem; margin-bottom: 30px; }
 
-        /* 섹션 공통 */
-        section {
-            padding: 80px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+        /* Model Grid */
+        .model-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .model-card { background: var(--light-gray); border-radius: 20px; padding: 30px; text-align: center; transition: 0.3s; }
+        .model-card:hover { background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .badge-main { display: inline-block; padding: 4px 12px; background: var(--uplus-magenta); color: white; border-radius: 4px; font-size: 0.8rem; margin-bottom: 10px; }
 
-        section h2 {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 40px;
-        }
+        /* Benefits */
+        .benefit-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: center; }
+        .benefit-item { padding: 20px; }
+        .benefit-item i { font-size: 2.5rem; color: var(--uplus-magenta); margin-bottom: 15px; }
 
-        /* 모델 소개 그리드 */
-        .model-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .model-card {
-            background: var(--light-gray);
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
-            transition: 0.3s;
-        }
-
-        .model-card:hover {
-            background: #fff;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .model-card img {
-            width: 100%;
-            max-width: 200px;
-            margin-bottom: 20px;
-        }
-
-        .model-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 4px 12px;
-            background: var(--uplus-magenta);
-            color: white;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            margin-bottom: 10px;
-        }
-
-        /* 혜택 섹션 */
-        .benefit-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            text-align: center;
-        }
-
-        .benefit-item i {
-            font-size: 2.5rem;
-            color: var(--uplus-magenta);
-            margin-bottom: 15px;
-        }
-
-        /* 매장 오시는 길 (이미지 기반 레이아웃) */
-        .store-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-            padding: 20px 0;
-        }
-
-        .store-card {
-            background: #fff;
-            border-radius: 20px;
+        /* 리뷰 섹션 - 스와이프 기능 적용 */
+        .review-section {
+            padding-left: 0;
+            padding-right: 0;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-            text-decoration: none;
-            color: inherit;
+            background-color: #fff;
+        }
+        .review-grid {
             display: flex;
-            flex-direction: column;
+            gap: 15px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 0 20px 20px 20px;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE/Edge */
+            text-align: left;
         }
-
-        .store-card:hover {
-            transform: translateY(-5px);
+        .review-grid::-webkit-scrollbar {
+            display: none; /* Chrome, Safari */
         }
-
-        .store-img {
+        .review-card {
+            flex: 0 0 80%; /* 모바일에서 다음 카드가 살짝 보이도록 설정 */
+            scroll-snap-align: center;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #eee;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .review-card img {
             width: 100%;
-            height: 220px;
-            background-color: #e0e0e0;
-            display: flex;
+            height: auto;
+            display: block;
+            border-radius: 0;
+        }
+
+        /* Real-time Status Section */
+        .status-section { background-color: #f9f9f9; padding: 60px 20px; }
+        .status-container {
+            max-width: 480px; 
+            margin: 0 auto;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            background: #fff;
+        }
+        .status-header { background: #333; color: #fff; padding: 12px; text-align: center; font-size: 14px; font-weight: 600; }
+        .status-list-wrapper { height: 300px; overflow: hidden; position: relative; }
+        .status-list { position: absolute; width: 100%; top: 0; left: 0; }
+        .status-item {
+            padding: 0 15px;
+            border-bottom: 1px solid #f8f8f8;
+            display: grid;
+            grid-template-columns: 55px 95px 1fr 65px 50px;
             align-items: center;
-            justify-content: center;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .store-info {
-            padding: 20px;
-        }
-
-        .store-name {
-            display: flex;
-            align-items: center;
-            font-size: 1.15rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-
-        .store-name i {
-            color: var(--uplus-magenta);
-            margin-right: 8px;
-            font-size: 0.9rem;
-        }
-
-        .store-link {
-            font-size: 0.95rem;
-            color: #888;
-            font-weight: 500;
-        }
-
-        /* 푸터 */
-        footer {
-            padding: 40px 20px;
-            background: #222;
-            color: #999;
-            text-align: center;
-            font-size: 0.8rem;
-        }
-
-        /* 플로팅 버튼 (모바일 전용) */
-        .floating-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 60px;
+            font-size: 13px;
             height: 60px;
-            background: #FEE500;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
-            color: #3C1E1E;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            z-index: 1000;
-            text-decoration: none;
+            box-sizing: border-box;
+            background: #fff;
+            gap: 5px;
+            text-align: left;
         }
+        .status-item .name { font-weight: 700; color: #333; }
+        .status-item .phone { color: #888; font-size: 12px; }
+        .status-item .model { color: #007aff; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: center; }
+        .status-item .badge { background: #f1f3f5; color: #666; padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: 700; text-align: center; }
+        .status-item .time { color: #ff5252; font-size: 11px; font-weight: 600; text-align: right; }
+        .status-notice { text-align: center; padding: 15px; color: #999; font-size: 11px; }
 
-        @media (max-width: 768px) {
+        /* Store Section */
+        .store-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .store-card { background: #fff; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-decoration: none; color: inherit; text-align: left; }
+        .store-img { height: 200px; background: #eee center/cover no-repeat; }
+        .store-info { padding: 15px; }
+        .store-name { font-weight: 700; font-size: 1.1rem; margin-bottom: 5px; display: flex; align-items: center; }
+        .store-name i { color: var(--uplus-magenta); margin-right: 6px; }
+
+        /* Footer */
+        footer {
+            background-color: #f1f1f1;
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666;
+            border-top: 1px solid #ddd;
+        }
+        footer p { margin-bottom: 5px; }
+
+        /* Bottom Fixed Bar */
+        .fixed-bottom {
+            position: fixed;
+            bottom: 0; left: 0; width: 100%;
+            display: flex;
+            z-index: 2000;
+            background: #fff;
+            box-shadow: 0 -4px 15px rgba(0,0,0,0.1);
+        }
+        .fixed-bottom .btn-fixed {
+            flex: 1; padding: 18px 0; border: none;
+            text-decoration: none; font-weight: 700;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 16px; background-color: var(--black-button); color: #fff;
+            cursor: pointer;
+        }
+        .fixed-bottom .btn-fixed:first-child { border-right: 1px solid #333; }
+        .fixed-bottom .btn-fixed i { margin-right: 8px; font-size: 1.2rem; }
+
+        @media (max-width: 480px) {
             .hero h1 { font-size: 1.8rem; }
-            header nav { display: none; }
+            .status-item { grid-template-columns: 50px 90px 1fr 60px 45px; font-size: 12px; }
+            .status-item .phone { display: none; }
+            .review-card { flex: 0 0 85%; }
         }
     </style>
 </head>
@@ -280,42 +219,40 @@
         <nav>
             <a href="#models">모델소개</a>
             <a href="#benefits">구매혜택</a>
+            <a href="#live-status">상담현황</a>
             <a href="#location">매장위치</a>
         </nav>
     </header>
 
     <section class="hero">
-        <span class="badge">U+만의 단독 특별 지원금</span>
+        <span class="badge-main">U+만의 단독 특별 지원금</span>
         <h1>핸드폰 바꿀 땐,<br><span>제대로 대우받으세요.</span></h1>
         <p>복잡한 요금제 설명은 끝!<br>가장 저렴한 설계로 딱 맞춰드립니다.</p>
-        <a href="https://open.kakao.com/o/sdWqcMOg" class="btn btn-magenta">지금 바로 견적 문의하기</a>
+        <a href="https://open.kakao.com/o/sdWqcMOg" class="btn-main">지금 바로 견적 문의하기</a>
         <br>
-        <a href="https://open.kakao.com/o/sdWqcMOg" class="btn btn-kakao"><i class="fa-solid fa-comment"></i> 카톡 1:1 빠른 상담</a>
+        <a href="https://open.kakao.com/o/sdWqcMOg" class="btn-kakao-main"><i class="fa-solid fa-comment"></i> 카톡 1:1 빠른 상담</a>
     </section>
 
     <section id="models">
         <h2>실시간 인기 모델</h2>
         <div class="model-grid">
             <div class="model-card">
-                <span class="badge">사전예약 문의</span>
+                <span class="badge-main">사전예약 문의</span>
                 <h3>Galaxy S26 Ultra</h3>
                 <p>차세대 AI 혁신의 시작</p>
                 <p><strong>최대 혜택 설계 대기중</strong></p>
-                <a href="https://open.kakao.com/o/sdWqcMOg" class="btn btn-magenta" style="padding: 10px 20px; margin-top: 15px; font-size: 0.9rem;">상담 예약</a>
             </div>
             <div class="model-card">
-                <span class="badge">베스트셀러</span>
+                <span class="badge-main">베스트셀러</span>
                 <h3>Galaxy S26</h3>
                 <p>더 얇고 더 강력해진 성능</p>
                 <p><strong>출시 기념 단독 지원금</strong></p>
-                <a href="https://open.kakao.com/o/sdWqcMOg" class="btn btn-magenta" style="padding: 10px 20px; margin-top: 15px; font-size: 0.9rem;">혜택 확인</a>
             </div>
             <div class="model-card">
-                <span class="badge">인기폭발</span>
-                <h3>iPhone 17</h3>
+                <span class="badge-main">인기폭발</span>
+                <h3>iPhone 17 Pro</h3>
                 <p>완전히 새로운 디자인</p>
                 <p><strong>재고 우선 배정 상담</strong></p>
-                <a href="https://open.kakao.com/o/sdWqcMOg" class="btn btn-magenta" style="padding: 10px 20px; margin-top: 15px; font-size: 0.9rem;">재고 문의</a>
             </div>
         </div>
     </section>
@@ -346,47 +283,67 @@
         </div>
     </section>
 
+    <!-- 리뷰 섹션 -->
+    <section class="review-section" id="reviews">
+        <h2>실제 고객 후기</h2>
+        <div class="review-grid">
+            <div class="review-card">
+                <img src="리뷰1.jpeg" alt="고객 리뷰 1" onerror="this.src='https://placehold.co/400x500?text=Review+1'">
+            </div>
+            <div class="review-card">
+                <img src="리뷰2.jpeg" alt="고객 리뷰 2" onerror="this.src='https://placehold.co/400x500?text=Review+2'">
+            </div>
+            <div class="review-card">
+                <img src="리뷰3.jpeg" alt="고객 리뷰 3" onerror="this.src='https://placehold.co/400x500?text=Review+3'">
+            </div>
+        </div>
+        <p style="font-size: 12px; color: #999; margin-top: 10px;">⬅ 옆으로 밀어서 더 많은 리뷰를 확인하세요 ➡</p>
+    </section>
+
+    <!-- 실시간 상담 신청 현황 -->
+    <section class="status-section" id="live-status">
+        <h2 style="font-size: 1.5rem; margin-bottom: 20px;"><i class="fa-regular fa-clock"></i> 실시간 상담 신청 현황</h2>
+        <div class="status-container">
+            <div class="status-header">실시간 상담 신청 현황</div>
+            <div class="status-list-wrapper">
+                <div class="status-list" id="rolling-list">
+                    <div class="status-item"><span class="name">최*진</span><span class="phone">010-****-9921</span><span class="model">아이폰 17 Pro</span><span class="badge">방문예약</span><span class="time">1분전</span></div>
+                    <div class="status-item"><span class="name">정*영</span><span class="phone">010-****-1234</span><span class="model">갤럭시 S26</span><span class="badge">상담예약</span><span class="time">1분전</span></div>
+                    <div class="status-item"><span class="name">최*현</span><span class="phone">010-****-0012</span><span class="model">갤럭시 S26+</span><span class="badge">상담예약</span><span class="time">1분전</span></div>
+                    <div class="status-item"><span class="name">최*아</span><span class="phone">010-****-7712</span><span class="model">갤럭시 S26+</span><span class="badge">기기변경</span><span class="time">2분전</span></div>
+                    <div class="status-item"><span class="name">조*우</span><span class="phone">010-****-3388</span><span class="model">아이폰 17</span><span class="badge">상담예약</span><span class="time">3분전</span></div>
+                    <div class="status-item"><span class="name">김*수</span><span class="phone">010-****-5566</span><span class="model">아이폰 16</span><span class="badge">기기변경</span><span class="time">5분전</span></div>
+                </div>
+            </div>
+            <div class="status-notice">
+                * 실시간 정보는 개인정보 보호를 위해 마스킹 처리되었습니다.
+            </div>
+        </div>
+    </section>
+
+    <!-- 매장 위치 -->
     <section id="location">
         <h2>매장 오시는 길</h2>
-        <div class="store-container">
-            <!-- 반월점 -->
-            <a href="https://map.naver.com/v5/search/LG유플러스%20반월동%20쪽구름점" target="_blank" class="store-card">
-                <div class="store-img" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://search.pstatic.net/common/?src=http%3A%2F%2Fldb.phinf.naver.net%2F20230524_281%2F1684894348633Hwy7N_JPEG%2FIMG_20230524_111153.jpg');">
-                    <!-- 실제 이미지가 없을 때 아이콘 표시 -->
-                    <i class="fa-solid fa-shop" style="font-size: 3rem; color: #fff; opacity: 0.5;"></i>
-                </div>
+        <div class="store-grid">
+            <a href="#" class="store-card">
+                <div class="store-img" style="background-image: url('https://search.pstatic.net/common/?src=http%3A%2F%2Fldb.phinf.naver.net%2F20230524_281%2F1684894348633Hwy7N_JPEG%2FIMG_20230524_111153.jpg');"></div>
                 <div class="store-info">
-                    <div class="store-name">
-                        <i class="fa-solid fa-location-pin"></i> 전주 반월점
-                    </div>
-                    <div class="store-link">매장 정보 보기 ></div>
+                    <div class="store-name"><i class="fa-solid fa-location-dot"></i> 전주 반월점</div>
+                    <p style="color: #999; font-size: 0.9rem;">매장 정보 보기 ></p>
                 </div>
             </a>
-
-            <!-- 만성점 -->
-            <a href="https://map.naver.com/v5/search/LG유플러스%20만성동%20만성중앙로점" target="_blank" class="store-card">
-                <div class="store-img" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://search.pstatic.net/common/?src=http%3A%2F%2Fldb.phinf.naver.net%2F20220608_123%2F1654673843512oUqG8_JPEG%2FIMG_20220608_162354.jpg');">
-                    <i class="fa-solid fa-shop" style="font-size: 3rem; color: #fff; opacity: 0.5;"></i>
-                </div>
+            <a href="#" class="store-card">
+                <div class="store-img" style="background-image: url('https://search.pstatic.net/common/?src=http%3A%2F%2Fldb.phinf.naver.net%2F20220608_123%2F1654673843512oUqG8_JPEG%2FIMG_20220608_162354.jpg');"></div>
                 <div class="store-info">
-                    <div class="store-name">
-                        <i class="fa-solid fa-location-pin"></i> 전주 만성점
-                    </div>
-                    <div class="store-link">매장 정보 보기 ></div>
+                    <div class="store-name"><i class="fa-solid fa-location-dot"></i> 전주 만성점</div>
+                    <p style="color: #999; font-size: 0.9rem;">매장 정보 보기 ></p>
                 </div>
             </a>
-
-            <!-- 서신점 -->
-            <a href="https://map.naver.com/v5/search/LG유플러스%20서신동%20전북은행사거리점" target="_blank" class="store-card">
-                <div class="store-img" style="background-color: #ddd;">
-                    <i class="fa-solid fa-shop" style="font-size: 3rem; color: #aaa;"></i>
-                    <span style="position: absolute; color: #999; font-weight: 900; font-size: 2rem; opacity: 0.3;">Store</span>
-                </div>
+            <a href="#" class="store-card">
+                <div class="store-img" style="background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #bbb; font-weight: 800;">Store</div>
                 <div class="store-info">
-                    <div class="store-name">
-                        <i class="fa-solid fa-location-pin"></i> 전주 서신점
-                    </div>
-                    <div class="store-link">매장 정보 보기 ></div>
+                    <div class="store-name"><i class="fa-solid fa-location-dot"></i> 전주 서신점</div>
+                    <p style="color: #999; font-size: 0.9rem;">매장 정보 보기 ></p>
                 </div>
             </a>
         </div>
@@ -397,10 +354,47 @@
         <p>© 2024 LG U+ Partner. All rights reserved.</p>
     </footer>
 
-    <!-- 플로팅 카톡 버튼 -->
-    <a href="https://open.kakao.com/o/sdWqcMOg" class="floating-btn">
-        <i class="fa-solid fa-comment"></i>
-    </a>
+    <!-- 하단 고정 상담 바 -->
+    <div class="fixed-bottom">
+        <a href="https://open.kakao.com/o/sdWqcMOg" class="btn-fixed">
+            <i class="fa-solid fa-comment"></i> 카톡 상담하기
+        </a>
+        <a href="tel:010-1234-5678" class="btn-fixed">
+            <i class="fa-solid fa-phone"></i> 전화 문의하기
+        </a>
+    </div>
+
+    <script>
+        window.onload = function() {
+            const list = document.getElementById('rolling-list');
+            const itemHeight = 60; 
+            let items = list.getElementsByClassName('status-item');
+            
+            const cloneCount = 5;
+            if (items.length > 0) {
+                for(let i=0; i<cloneCount; i++) {
+                    list.appendChild(items[i].cloneNode(true));
+                }
+
+                let currentIndex = 0;
+                const totalItems = items.length;
+
+                setInterval(() => {
+                    currentIndex++;
+                    list.style.transition = "top 0.6s ease-in-out";
+                    list.style.top = -(currentIndex * itemHeight) + "px";
+
+                    if (currentIndex >= totalItems - cloneCount) {
+                        setTimeout(() => {
+                            list.style.transition = "none";
+                            list.style.top = "0px";
+                            currentIndex = 0;
+                        }, 600);
+                    }
+                }, 2500);
+            }
+        };
+    </script>
 
 </body>
 </html>
