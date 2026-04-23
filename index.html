@@ -6,7 +6,10 @@
     <title>LG U+ 공식인증대리점 - 최신폰 상담센터</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+
         :root {
             --uplus-magenta: #E6007E;
             --uplus-black: #222222;
@@ -23,7 +26,7 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Pretendard', sans-serif;
+            font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
         }
 
         body {
@@ -89,7 +92,7 @@
         section { padding: 60px 20px; max-width: 1200px; margin: 0 auto; text-align: center; }
         section h2 { font-size: 1.8rem; margin-bottom: 30px; }
 
-        /* Internet Section - Clean & Modern Style */
+        /* Internet Section */
         .internet-banner {
             background: #ffffff;
             border: 2px solid #f2f2f2;
@@ -130,12 +133,6 @@
         }
         .btn-internet:hover { background-color: var(--uplus-magenta); transform: translateY(-2px); }
 
-        /* Model Grid */
-        .model-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .model-card { background: var(--light-gray); border-radius: 20px; padding: 30px; text-align: center; transition: 0.3s; }
-        .model-card:hover { background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        .badge-main { display: inline-block; padding: 4px 12px; background: var(--uplus-magenta); color: white; border-radius: 4px; font-size: 0.8rem; margin-bottom: 10px; }
-
         /* Benefits */
         .benefit-list { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
         .benefit-item { padding: 20px; }
@@ -169,15 +166,11 @@
             border: 1px solid #eee;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
-        .review-card img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
+        .review-card img { width: 100%; height: auto; display: block; }
 
         /* Status Section */
         .status-container {
-            max-width: 480px; 
+            max-width: 480px;
             margin: 0 auto;
             border: 1px solid #eee;
             border-radius: 12px;
@@ -238,7 +231,6 @@
         .trust-banner p { font-size: 1rem; color: #666; word-break: keep-all; line-height: 1.6; }
         .trust-banner p strong { color: var(--uplus-magenta); font-weight: 600; }
 
-        /* Footer */
         footer {
             background-color: #f1f1f1;
             padding: 40px 20px;
@@ -287,6 +279,52 @@
         @keyframes modalFadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         .modal-close-x { position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 28px; color: #999; cursor: pointer; }
 
+        /* Product Grid (모델 섹션) */
+        .badge-main { display: inline-block; padding: 4px 12px; background: var(--uplus-magenta); color: white; border-radius: 4px; font-size: 0.8rem; margin-bottom: 10px; }
+        .badge-yellow {
+            background-color: #fef01b;
+            color: #000;
+            font-weight: bold;
+            padding: 4px 12px;
+            border-radius: 8px;
+            display: inline-block;
+            font-size: 0.85rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .badge-cyan {
+            background-color: #81e6d9;
+            color: #000;
+            font-weight: bold;
+            padding: 4px 12px;
+            border-radius: 8px;
+            display: inline-block;
+            font-size: 0.85rem;
+        }
+        .product-card {
+            background-color: #f8f9fa;
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            transition: transform 0.2s;
+        }
+        .product-card:hover { transform: translateY(-5px); }
+
+        .tab-btn {
+            padding: 8px 20px;
+            border-radius: 9999px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+        }
+        .tab-btn.active { background-color: #333; color: white; }
+        .tab-btn:not(.active) { background-color: #f3f4f6; color: #6b7280; }
+
+        .product-item { display: none; }
+        .product-item.visible { display: flex; }
+
         @media (max-width: 768px) {
             header { flex-direction: column; padding: 10px; height: auto; }
             .logo { margin-bottom: 10px; font-size: 1rem; }
@@ -324,7 +362,7 @@
 
             .status-item { grid-template-columns: 50px 1fr 60px 45px; font-size: 12px; }
             .status-item .phone { display: none; }
-            
+
             .trust-banner { padding: 25px 15px; margin: 10px 0 30px; }
             .trust-banner h3 { font-size: 1.1rem; }
             .trust-banner p { font-size: 0.85rem; }
@@ -352,29 +390,227 @@
         <a href="https://open.kakao.com/o/sdWqcMOg" class="btn-kakao-main"><i class="fa-solid fa-comment"></i> 카톡 1:1 빠른 상담</a>
     </section>
 
-    <section id="models">
+    <!-- ===== 실시간 인기 모델 섹션 (새 디자인) ===== -->
+    <section id="models" style="padding-bottom: 40px;">
         <h2>실시간 인기 모델</h2>
-        <div class="model-grid">
-            <div class="model-card">
-                <span class="badge-main">사전예약 문의</span>
-                <h3>Galaxy S26 Ultra</h3>
-                <p>차세대 AI 혁신의 시작</p>
-                <p><strong>최대 혜택 설계 대기중</strong></p>
+
+        <!-- 카테고리 탭 -->
+        <div style="display:flex; gap:8px; margin-bottom:24px; justify-content:center; flex-wrap:wrap;">
+            <button class="tab-btn active" onclick="filterProducts('all', this)">베스트</button>
+            <button class="tab-btn" onclick="filterProducts('galaxy', this)">갤럭시</button>
+            <button class="tab-btn" onclick="filterProducts('iphone', this)">아이폰</button>
+            <button class="tab-btn" onclick="filterProducts('kids', this)">키즈폰</button>
+        </div>
+
+        <!-- 상품 그리드 -->
+        <div style="display:grid; grid-template-columns: repeat(2, 1fr); gap:16px; max-width:700px; margin:0 auto;" id="product-grid">
+
+            <!-- 상품 1 - 갤럭시 S26 -->
+            <div class="product-item visible flex-col" data-category="galaxy">
+                <div class="product-card mb-3">
+                    <div style="display:flex; justify-content:center; align-items:center; height:160px;">
+                        <img src="https://img.icons8.com/color/144/null/samsung-galaxy-s22-ultra.png" alt="Galaxy S26" style="max-height:100%;">
+                    </div>
+                    <div style="margin-top:8px;">
+                        <span class="badge-yellow">워치8 무료증정</span>
+                    </div>
+                </div>
+                <div style="padding:0 4px; text-align:left;">
+                    <h3 style="color:#555; font-size:0.9rem; font-weight:500;">갤럭시 S26</h3>
+                    <div style="display:flex; align-items:baseline; gap:4px; margin-top:4px;">
+                        <span style="color:#ef4444; font-weight:700; font-size:1.1rem;">97%</span>
+                        <span style="font-weight:700; font-size:1.1rem;">34,000원</span>
+                    </div>
+                </div>
             </div>
-            <div class="model-card">
-                <span class="badge-main">베스트셀러</span>
-                <h3>Galaxy S26</h3>
-                <p>더 얇고 더 강력해진 성능</p>
-                <p><strong>출시 기념 단독 지원금</strong></p>
+
+            <!-- 상품 2 - 갤럭시 S26+ -->
+            <div class="product-item visible flex-col" data-category="galaxy">
+                <div class="product-card mb-3">
+                    <div style="display:flex; justify-content:center; align-items:center; height:160px;">
+                        <img src="https://img.icons8.com/color/144/null/samsung-galaxy-s22.png" alt="Galaxy S26 Plus" style="max-height:100%;">
+                    </div>
+                    <div style="margin-top:8px;">
+                        <span class="badge-yellow">워치8 무료증정</span>
+                    </div>
+                </div>
+                <div style="padding:0 4px; text-align:left;">
+                    <h3 style="color:#555; font-size:0.9rem; font-weight:500;">갤럭시 S26플러스</h3>
+                    <div style="display:flex; align-items:baseline; gap:4px; margin-top:4px;">
+                        <span style="color:#ef4444; font-weight:700; font-size:1.1rem;">84%</span>
+                        <span style="font-weight:700; font-size:1.1rem;">232,000원</span>
+                    </div>
+                </div>
             </div>
-            <div class="model-card">
-                <span class="badge-main">인기폭발</span>
-                <h3>iPhone 17 Pro</h3>
-                <p>완전히 새로운 디자인</p>
-                <p><strong>재고 우선 배정 상담</strong></p>
+
+            <!-- 상품 3 - 갤럭시 S26 Ultra -->
+            <div class="product-item visible flex-col" data-category="galaxy">
+                <div class="product-card mb-3">
+                    <div style="display:flex; justify-content:center; align-items:center; height:160px;">
+                        <img src="https://img.icons8.com/color/144/null/samsung-galaxy-s21-ultra.png" alt="Galaxy S26 Ultra" style="max-height:100%;">
+                    </div>
+                    <div style="margin-top:8px;">
+                        <span class="badge-yellow">워치8 무료증정</span>
+                    </div>
+                </div>
+                <div style="padding:0 4px; text-align:left;">
+                    <h3 style="color:#555; font-size:0.9rem; font-weight:500;">갤럭시 S26울트라</h3>
+                    <div style="display:flex; align-items:baseline; gap:4px; margin-top:4px;">
+                        <span style="color:#ef4444; font-weight:700; font-size:1.1rem;">67%</span>
+                        <span style="font-weight:700; font-size:1.1rem;">577,400원</span>
+                    </div>
+                </div>
             </div>
+
+            <!-- 상품 4 - Z플립7 -->
+            <div class="product-item visible flex-col" data-category="galaxy">
+                <div class="product-card mb-3">
+                    <div style="display:flex; justify-content:center; align-items:center; height:160px;">
+                        <img src="https://img.icons8.com/color/144/null/samsung-galaxy-z-fold-3.png" alt="Z Flip 7" style="max-height:100%;">
+                    </div>
+                    <div style="margin-top:8px;">
+                        <span class="badge-yellow">워치8 무료증정</span>
+                    </div>
+                </div>
+                <div style="padding:0 4px; text-align:left;">
+                    <h3 style="color:#555; font-size:0.9rem; font-weight:500;">갤럭시 Z플립7</h3>
+                    <div style="display:flex; align-items:baseline; gap:4px; margin-top:4px;">
+                        <span style="color:#ef4444; font-weight:700; font-size:1.1rem;">88%</span>
+                        <span style="font-weight:700; font-size:1.1rem;">165,000원</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 상품 5 - iPhone 17 -->
+            <div class="product-item visible flex-col" data-category="iphone">
+                <div class="product-card mb-3">
+                    <div style="display:flex; justify-content:center; align-items:center; height:160px;">
+                        <img src="https://img.icons8.com/color/144/null/iphone-14-pro.png" alt="iPhone 17" style="max-height:100%;">
+                    </div>
+                    <div style="margin-top:8px;">
+                        <span class="badge-cyan">출시기념 특가</span>
+                    </div>
+                </div>
+                <div style="padding:0 4px; text-align:left;">
+                    <h3 style="color:#555; font-size:0.9rem; font-weight:500;">아이폰 17</h3>
+                    <div style="display:flex; align-items:baseline; gap:4px; margin-top:4px;">
+                        <span style="color:#E6007E; font-weight:700; font-size:0.85rem;">단독 지원금 적용중</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 상품 6 - iPhone 17 Air -->
+            <div class="product-item visible flex-col" data-category="iphone">
+                <div class="product-card mb-3">
+                    <div style="display:flex; justify-content:center; align-items:center; height:160px;">
+                        <img src="https://img.icons8.com/color/144/null/iphone-14-pro.png" alt="iPhone 17 Air" style="max-height:100%; filter:hue-rotate(60deg);">
+                    </div>
+                    <div style="margin-top:8px;">
+                        <span class="badge-cyan">슬림 신모델</span>
+                    </div>
+                </div>
+                <div style="padding:0 4px; text-align:left;">
+                    <h3 style="color:#555; font-size:0.9rem; font-weight:500;">아이폰 17 Air</h3>
+                    <div style="display:flex; align-items:baseline; gap:4px; margin-top:4px;">
+                        <span style="color:#E6007E; font-weight:700; font-size:0.85rem;">단독 지원금 적용중</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 상품 7 - iPhone 17 Pro -->
+            <div class="product-item visible flex-col" data-category="iphone">
+                <div class="product-card mb-3">
+                    <div style="display:flex; justify-content:center; align-items:center; height:160px;">
+                        <img src="https://img.icons8.com/color/144/null/iphone-14-pro.png" alt="iPhone 17 Pro" style="max-height:100%; filter:hue-rotate(180deg);">
+                    </div>
+                    <div style="margin-top:8px;">
+                        <span class="badge-cyan">72만원 미친할인</span>
+                    </div>
+                </div>
+                <div style="padding:0 4px; text-align:left;">
+                    <h3 style="color:#555; font-size:0.9rem; font-weight:500;">아이폰 17 Pro</h3>
+                    <div style="display:flex; align-items:baseline; gap:4px; margin-top:4px;">
+                        <span style="color:#E6007E; font-weight:700; font-size:0.85rem;">재고 우선 배정 상담</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 상품 8 - iPhone 17 Pro Max -->
+            <div class="product-item visible flex-col" data-category="iphone">
+                <div class="product-card mb-3">
+                    <div style="display:flex; justify-content:center; align-items:center; height:160px;">
+                        <img src="https://img.icons8.com/color/144/null/iphone-14-pro.png" alt="iPhone 17 Pro Max" style="max-height:100%; filter:hue-rotate(270deg);">
+                    </div>
+                    <div style="margin-top:8px;">
+                        <span style="background-color:#1a1a1a; color:#fff; font-weight:bold; padding:4px 12px; border-radius:8px; display:inline-block; font-size:0.85rem;">✨ 최상위 모델</span>
+                    </div>
+                </div>
+                <div style="padding:0 4px; text-align:left;">
+                    <h3 style="color:#555; font-size:0.9rem; font-weight:500;">아이폰 17 Pro Max</h3>
+                    <div style="display:flex; align-items:baseline; gap:4px; margin-top:4px;">
+                        <span style="color:#E6007E; font-weight:700; font-size:0.85rem;">재고 우선 배정 상담</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 상품 7 - 갤럭시 Z폴드7 -->
+            <div class="product-item visible flex-col" data-category="galaxy">
+                <div class="product-card mb-3">
+                    <div style="display:flex; justify-content:center; align-items:center; height:160px;">
+                        <img src="https://img.icons8.com/color/144/null/samsung-galaxy-z-fold-3.png" alt="Z Fold 7" style="max-height:100%;">
+                    </div>
+                    <div style="margin-top:8px;">
+                        <span class="badge-yellow">워치8 무료증정</span>
+                    </div>
+                </div>
+                <div style="padding:0 4px; text-align:left;">
+                    <h3 style="color:#555; font-size:0.9rem; font-weight:500;">갤럭시 Z폴드7</h3>
+                    <div style="display:flex; align-items:baseline; gap:4px; margin-top:4px;">
+                        <span style="color:#ef4444; font-weight:700; font-size:1.1rem;">단독특가</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 상품 8 - 갤럭시 버디4 0원 -->
+            <div class="product-item visible flex-col" data-category="galaxy">
+                <div class="product-card mb-3">
+                    <div style="display:flex; justify-content:center; align-items:center; height:160px;">
+                        <img src="https://img.icons8.com/color/144/null/samsung-galaxy-s22.png" alt="Galaxy Buddy 4" style="max-height:100%; filter:hue-rotate(90deg);">
+                    </div>
+                    <div style="margin-top:8px;">
+                        <span style="background-color:#ff4d4d; color:#fff; font-weight:bold; padding:4px 12px; border-radius:8px; display:inline-block; font-size:0.85rem;">🔥 0원 특가</span>
+                    </div>
+                </div>
+                <div style="padding:0 4px; text-align:left;">
+                    <h3 style="color:#555; font-size:0.9rem; font-weight:500;">갤럭시 버디4</h3>
+                    <div style="display:flex; align-items:baseline; gap:4px; margin-top:4px;">
+                        <span style="color:#ef4444; font-weight:700; font-size:1.1rem; text-decoration:line-through; opacity:0.5;">월 XX,000원</span>
+                        <span style="font-weight:800; font-size:1.2rem; color:#111;">0원</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 상품 9 - 키즈폰 무너2 -->
+            <div class="product-item flex-col" data-category="kids">
+                <div class="product-card mb-3">
+                    <div style="display:flex; justify-content:center; align-items:center; height:160px;">
+                        <img src="https://img.icons8.com/color/144/null/smartphone-tablet.png" alt="무너2" style="max-height:100%;">
+                    </div>
+                    <div style="margin-top:8px;">
+                        <span style="background-color:#a78bfa; color:#fff; font-weight:bold; padding:4px 12px; border-radius:8px; display:inline-block; font-size:0.85rem;">👶 키즈 인기1위</span>
+                    </div>
+                </div>
+                <div style="padding:0 4px; text-align:left;">
+                    <h3 style="color:#555; font-size:0.9rem; font-weight:500;">무너2</h3>
+                    <div style="display:flex; align-items:baseline; gap:4px; margin-top:4px;">
+                        <span style="color:#E6007E; font-weight:700; font-size:0.85rem;">키즈 전용 요금제 상담</span>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
+    <!-- ===== 모델 섹션 끝 ===== -->
 
     <section id="benefits" style="background-color: #fffafc;">
         <h2>우리 매장만의 구매 혜택</h2>
@@ -402,7 +638,6 @@
         </div>
     </section>
 
-    <!-- 인터넷 가입 안내 섹션 (색상 및 스타일 개선) -->
     <section id="internet-guide" style="padding-top: 40px; padding-bottom: 20px;">
         <div class="internet-banner">
             <div class="internet-content">
@@ -498,7 +733,6 @@
         </button>
     </div>
 
-    <!-- 전화 확인 모달 -->
     <div id="callModal" class="modal-overlay">
         <div class="modal-content">
             <button class="modal-close-x" onclick="closeModal()">×</button>
@@ -512,38 +746,52 @@
     </div>
 
     <script>
+        // 모달
         function openModal() {
             document.getElementById('callModal').style.display = 'flex';
             document.body.style.overflow = 'hidden';
         }
-
         function closeModal() {
             document.getElementById('callModal').style.display = 'none';
             document.body.style.overflow = 'auto';
         }
-
         window.onclick = function(event) {
             const modal = document.getElementById('callModal');
             if (event.target == modal) closeModal();
         }
 
+        // 상품 필터 탭
+        function filterProducts(category, btn) {
+            // 탭 버튼 스타일
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // 상품 표시/숨김
+            document.querySelectorAll('.product-item').forEach(item => {
+                if (category === 'all' || item.dataset.category === category) {
+                    item.classList.add('visible');
+                } else {
+                    item.classList.remove('visible');
+                }
+            });
+        }
+
+        // 실시간 상담 롤링
         window.onload = function() {
             const list = document.getElementById('rolling-list');
-            const itemHeight = 60; 
+            const itemHeight = 60;
             let items = list.getElementsByClassName('status-item');
-            
             const cloneCount = items.length;
+
             if (items.length > 0) {
-                for(let i=0; i<cloneCount; i++) {
+                for (let i = 0; i < cloneCount; i++) {
                     list.appendChild(items[i].cloneNode(true));
                 }
-
                 let currentIndex = 0;
                 setInterval(() => {
                     currentIndex++;
                     list.style.transition = "top 0.6s ease-in-out";
                     list.style.top = -(currentIndex * itemHeight) + "px";
-
                     if (currentIndex >= cloneCount) {
                         setTimeout(() => {
                             list.style.transition = "none";
