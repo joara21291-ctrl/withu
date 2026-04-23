@@ -335,27 +335,26 @@
             .hero h1 { font-size: 1.8rem; }
             .hero p { font-size: 1rem; }
 
-            .internet-banner { flex-direction: column; text-align: center; padding: 35px 20px; border-radius: 20px; }
-            .internet-content h3 { font-size: 1.35rem; }
-            .internet-content p { font-size: 1rem; }
-            .btn-internet { width: 100%; padding: 16px; font-size: 15px; }
+            .internet-banner { flex-direction: column; text-align: center; padding: 25px 16px; border-radius: 20px; gap: 14px; }
+            .internet-content h3 { font-size: 1rem; line-height: 1.4; }
+            .internet-content p { font-size: 0.88rem; line-height: 1.5; }
+            .btn-internet { width: 100%; padding: 14px; font-size: 14px; }
 
             .benefit-list {
-                display: flex;
-                overflow-x: auto;
-                scroll-snap-type: x mandatory;
-                gap: 10px;
-                padding: 10px 0;
-                scrollbar-width: none;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+                padding: 0;
             }
             .benefit-item {
-                flex: 0 0 160px;
-                scroll-snap-align: center;
                 background: #fff;
                 border-radius: 15px;
-                padding: 15px;
+                padding: 18px 10px;
                 box-shadow: 0 2px 8px rgba(0,0,0,0.05);
             }
+            .benefit-item i { font-size: 1.8rem; margin-bottom: 8px; }
+            .benefit-item h4 { font-size: 0.9rem; }
+            .benefit-item p { font-size: 0.78rem; line-height: 1.4; }
 
             .review-grid { justify-content: flex-start; }
             .review-card { flex: 0 0 85%; }
@@ -364,8 +363,8 @@
             .status-item .phone { display: none; }
 
             .trust-banner { padding: 25px 15px; margin: 10px 0 30px; }
-            .trust-banner h3 { font-size: 1.1rem; }
-            .trust-banner p { font-size: 0.85rem; }
+            .trust-banner h3 { font-size: 1.05rem; }
+            .trust-banner p { font-size: 0.82rem; line-height: 1.7; }
         }
     </style>
 </head>
@@ -688,7 +687,7 @@
     <section id="trust" style="background-color: #fafafa; padding-bottom: 0;">
         <div class="trust-banner">
             <h3>💡 속임수 없는 투명한 조건</h3>
-            <p>고가 요금제 강요도, 카드 발급 권유도 없이 오직 <strong>고객님께 가장 유리한 조건</strong>만을 제안합니다.</p>
+            <p>고가 요금제 강요도, 카드 발급 권유도 없이<br>오직 <strong>고객님께 가장 유리한 조건</strong>만을 제안합니다.</p>
         </div>
         <h2 id="location-anchor">가까운 매장에서 만나요</h2>
     </section>
