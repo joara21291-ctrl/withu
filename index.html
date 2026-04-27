@@ -85,7 +85,7 @@
 
         /* Hero Section */
         .hero {
-            margin-top: 100px;
+            margin-top: 140px;
             padding: 60px 20px;
             background: linear-gradient(135deg, #fff 0%, #fff0f6 100%);
             text-align: center;
@@ -344,8 +344,43 @@
         }
         .faq-item.open .faq-a { display: block; }
 
-        /* FAQ */
-        .badge-main { display: inline-block; padding: 4px 12px; background: var(--uplus-magenta); color: white; border-radius: 4px; font-size: 0.8rem; margin-bottom: 10px; }
+        /* 상품 카드 견적 버튼 */
+        .btn-card-consult {
+            display: block;
+            margin-top: 10px;
+            padding: 9px 0;
+            background-color: var(--uplus-magenta);
+            color: #fff;
+            font-size: 0.82rem;
+            font-weight: 700;
+            border-radius: 8px;
+            text-decoration: none;
+            text-align: center;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .btn-card-consult:hover { background-color: #c0003a; transform: translateY(-1px); }
+
+        /* 카카오 플로팅 버튼 */
+        .kakao-float {
+            position: fixed;
+            bottom: 90px;
+            right: 18px;
+            width: 54px;
+            height: 54px;
+            background-color: #FEE500;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+            z-index: 1999;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+        .kakao-float:hover { transform: scale(1.1); }
+        .kakao-float img { width: 30px; height: 30px; }
+
+        /* Product Grid (모델 섹션) */ { display: inline-block; padding: 4px 12px; background: var(--uplus-magenta); color: white; border-radius: 4px; font-size: 0.8rem; margin-bottom: 10px; }
         .badge-yellow {
             background-color: #fef01b;
             color: #000;
@@ -492,6 +527,7 @@
                         <span style="color:#ef4444; font-weight:700; font-size:1.1rem;">97%</span>
                         <span style="font-weight:700; font-size:1.1rem;">34,000원</span>
                     </div>
+                    <a href="https://open.kakao.com/o/sdWqcMOg" class="btn-card-consult" target="_blank">💬 견적 문의</a>
                 </div>
             </div>
 
@@ -511,6 +547,7 @@
                         <span style="color:#ef4444; font-weight:700; font-size:1.1rem;">84%</span>
                         <span style="font-weight:700; font-size:1.1rem;">232,000원</span>
                     </div>
+                    <a href="https://open.kakao.com/o/sdWqcMOg" class="btn-card-consult" target="_blank">💬 견적 문의</a>
                 </div>
             </div>
 
@@ -530,6 +567,7 @@
                         <span style="color:#ef4444; font-weight:700; font-size:1.1rem;">67%</span>
                         <span style="font-weight:700; font-size:1.1rem;">577,400원</span>
                     </div>
+                    <a href="https://open.kakao.com/o/sdWqcMOg" class="btn-card-consult" target="_blank">💬 견적 문의</a>
                 </div>
             </div>
 
@@ -549,6 +587,7 @@
                         <span style="color:#ef4444; font-weight:700; font-size:1.1rem;">88%</span>
                         <span style="font-weight:700; font-size:1.1rem;">165,000원</span>
                     </div>
+                    <a href="https://open.kakao.com/o/sdWqcMOg" class="btn-card-consult" target="_blank">💬 견적 문의</a>
                 </div>
             </div>
 
@@ -567,6 +606,7 @@
                     <div style="display:flex; align-items:baseline; gap:4px; margin-top:4px;">
                         <span style="color:#E6007E; font-weight:700; font-size:0.85rem;">단독 지원금 적용중</span>
                     </div>
+                    <a href="https://open.kakao.com/o/sdWqcMOg" class="btn-card-consult" target="_blank">💬 견적 문의</a>
                 </div>
             </div>
 
@@ -585,6 +625,7 @@
                     <div style="display:flex; align-items:baseline; gap:4px; margin-top:4px;">
                         <span style="color:#E6007E; font-weight:700; font-size:0.85rem;">단독 지원금 적용중</span>
                     </div>
+                    <a href="https://open.kakao.com/o/sdWqcMOg" class="btn-card-consult" target="_blank">💬 견적 문의</a>
                 </div>
             </div>
 
@@ -603,6 +644,7 @@
                     <div style="display:flex; align-items:baseline; gap:4px; margin-top:4px;">
                         <span style="color:#E6007E; font-weight:700; font-size:0.85rem;">재고 우선 배정 상담</span>
                     </div>
+                    <a href="https://open.kakao.com/o/sdWqcMOg" class="btn-card-consult" target="_blank">💬 견적 문의</a>
                 </div>
             </div>
 
@@ -621,10 +663,11 @@
                     <div style="display:flex; align-items:baseline; gap:4px; margin-top:4px;">
                         <span style="color:#E6007E; font-weight:700; font-size:0.85rem;">재고 우선 배정 상담</span>
                     </div>
+                    <a href="https://open.kakao.com/o/sdWqcMOg" class="btn-card-consult" target="_blank">💬 견적 문의</a>
                 </div>
             </div>
 
-            <!-- 상품 7 - 갤럭시 Z폴드7 -->
+            <!-- 상품 9 - 갤럭시 Z폴드7 -->
             <div class="product-item visible flex-col" data-category="galaxy">
                 <div class="product-card mb-3">
                     <div style="display:flex; justify-content:center; align-items:center; height:160px;">
@@ -639,10 +682,11 @@
                     <div style="display:flex; align-items:baseline; gap:4px; margin-top:4px;">
                         <span style="color:#ef4444; font-weight:700; font-size:1.1rem;">단독특가</span>
                     </div>
+                    <a href="https://open.kakao.com/o/sdWqcMOg" class="btn-card-consult" target="_blank">💬 견적 문의</a>
                 </div>
             </div>
 
-            <!-- 상품 8 - 갤럭시 버디4 0원 -->
+            <!-- 상품 10 - 갤럭시 버디4 0원 -->
             <div class="product-item visible flex-col" data-category="galaxy">
                 <div class="product-card mb-3">
                     <div style="display:flex; justify-content:center; align-items:center; height:160px;">
@@ -658,6 +702,7 @@
                         <span style="color:#ef4444; font-weight:700; font-size:1.1rem; text-decoration:line-through; opacity:0.5;">출고가 399,300원</span>
                         <span style="font-weight:800; font-size:1.2rem; color:#111;">0원</span>
                     </div>
+                    <a href="https://open.kakao.com/o/sdWqcMOg" class="btn-card-consult" target="_blank">💬 견적 문의</a>
                 </div>
             </div>
 
@@ -676,6 +721,7 @@
                     <div style="display:flex; align-items:baseline; gap:4px; margin-top:4px;">
                         <span style="color:#E6007E; font-weight:700; font-size:0.85rem;">키즈 전용 요금제 상담</span>
                     </div>
+                    <a href="https://open.kakao.com/o/sdWqcMOg" class="btn-card-consult" target="_blank">💬 견적 문의</a>
                 </div>
             </div>
 
@@ -757,7 +803,7 @@
     </section>
 
     <!-- ===== FAQ 섹션 ===== -->
-    <section id="faq" style="background-color: #fafafa;">
+    <section id="faq" style="background-color: #ffffff;">
         <h2>❓ 자주 묻는 질문</h2>
         <div style="max-width: 720px; margin: 0 auto; text-align: left;" id="faq-list">
 
@@ -833,6 +879,11 @@
         <p>상호명: LG U+ 공식인증대리점 | 전국 무료 택배 배송 전문</p>
         <p>© LG U+ Partner. All rights reserved.</p>
     </footer>
+
+    <!-- 카카오 플로팅 버튼 -->
+    <a href="https://open.kakao.com/o/sdWqcMOg" class="kakao-float" target="_blank" title="카카오 상담">
+        <img src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png" alt="카카오 상담">
+    </a>
 
     <div class="fixed-bottom">
         <a href="https://open.kakao.com/o/sdWqcMOg" class="btn-fixed btn-kakao-fixed">
