@@ -43,9 +43,30 @@
             padding-bottom: 70px;
         }
 
-        header {
+        /* 긴급 공지 배너 */
+        .notice-banner {
             position: fixed;
             top: 0;
+            width: 100%;
+            background: linear-gradient(90deg, #c0003a, #E6007E, #c0003a);
+            background-size: 200% auto;
+            animation: bannerSlide 3s linear infinite;
+            color: #fff;
+            text-align: center;
+            font-size: 0.82rem;
+            font-weight: 700;
+            padding: 8px 20px;
+            z-index: 1100;
+            letter-spacing: -0.2px;
+        }
+        @keyframes bannerSlide {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+        header {
+            position: fixed;
+            top: 36px;
             width: 100%;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -285,7 +306,45 @@
         @keyframes modalFadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         .modal-close-x { position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 28px; color: #999; cursor: pointer; }
 
-        /* Product Grid (모델 섹션) */
+        /* FAQ */
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 18px 8px;
+            cursor: pointer;
+        }
+        .faq-item:first-child { border-top: 1px solid #eee; }
+        .faq-q {
+            font-weight: 700;
+            font-size: 0.98rem;
+            color: #222;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+        .faq-q::after {
+            content: '+';
+            font-size: 1.4rem;
+            color: var(--uplus-magenta);
+            flex-shrink: 0;
+            transition: transform 0.3s;
+            line-height: 1;
+        }
+        .faq-item.open .faq-q::after {
+            transform: rotate(45deg);
+        }
+        .faq-a {
+            display: none;
+            margin-top: 12px;
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.7;
+            padding-left: 4px;
+            word-break: keep-all;
+        }
+        .faq-item.open .faq-a { display: block; }
+
+        /* FAQ */
         .badge-main { display: inline-block; padding: 4px 12px; background: var(--uplus-magenta); color: white; border-radius: 4px; font-size: 0.8rem; margin-bottom: 10px; }
         .badge-yellow {
             background-color: #fef01b;
@@ -332,7 +391,8 @@
         .product-item.visible { display: flex; }
 
         @media (max-width: 768px) {
-            header { flex-direction: column; padding: 10px; height: auto; }
+            .notice-banner { font-size: 0.75rem; padding: 7px 10px; }
+            header { top: 34px; flex-direction: column; padding: 10px; height: auto; }
             .logo { margin-bottom: 10px; font-size: 1rem; }
             nav { width: 100%; justify-content: space-around; gap: 0; border-top: 1px solid #f5f5f5; padding-top: 8px; }
             nav a { margin: 0; font-size: 0.75rem; }
@@ -375,6 +435,11 @@
     </style>
 </head>
 <body>
+
+    <!-- 긴급 공지 배너 -->
+    <div class="notice-banner">
+        🔴 오늘 마감! S26 워치8 무료증정 재고 12개 남음 &nbsp;|&nbsp; 지금 바로 카톡 상담하세요!
+    </div>
 
     <header>
         <a href="#" class="logo">LG U<sup>+</sup> 공식인증대리점</a>
@@ -590,7 +655,7 @@
                 <div style="padding:0 4px; text-align:left;">
                     <h3 style="color:#555; font-size:0.9rem; font-weight:500;">갤럭시 버디4</h3>
                     <div style="display:flex; align-items:baseline; gap:4px; margin-top:4px;">
-                        <span style="color:#ef4444; font-weight:700; font-size:1.1rem; text-decoration:line-through; opacity:0.5;">월 XX,000원</span>
+                        <span style="color:#ef4444; font-weight:700; font-size:1.1rem; text-decoration:line-through; opacity:0.5;">출고가 399,300원</span>
                         <span style="font-weight:800; font-size:1.2rem; color:#111;">0원</span>
                     </div>
                 </div>
@@ -678,11 +743,11 @@
             <div class="status-header">실시간 상담 신청 현황</div>
             <div class="status-list-wrapper">
                 <div class="status-list" id="rolling-list">
-                    <div class="status-item"><span class="name">최*진</span><span class="phone">010-****-9921</span><span class="model">아이폰 17 Pro</span><span class="badge">방문예약</span><span class="time">1분전</span></div>
+                    <div class="status-item"><span class="name">최*진</span><span class="phone">010-****-9921</span><span class="model">아이폰 17 Pro</span><span class="badge">방문예약</span><span class="time">방금 전</span></div>
                     <div class="status-item"><span class="name">정*영</span><span class="phone">010-****-1234</span><span class="model">갤럭시 S26</span><span class="badge">상담예약</span><span class="time">1분전</span></div>
-                    <div class="status-item"><span class="name">최*현</span><span class="phone">010-****-0012</span><span class="model">갤럭시 S26+</span><span class="badge">상담예약</span><span class="time">1분전</span></div>
-                    <div class="status-item"><span class="name">최*아</span><span class="phone">010-****-7712</span><span class="model">갤럭시 S26+</span><span class="badge">기기변경</span><span class="time">1분전</span></div>
-                    <div class="status-item"><span class="name">조*우</span><span class="phone">010-****-3388</span><span class="model">아이폰 17</span><span class="badge">상담예약</span><span class="time">1분전</span></div>
+                    <div class="status-item"><span class="name">최*현</span><span class="phone">010-****-0012</span><span class="model">갤럭시 S26+</span><span class="badge">상담예약</span><span class="time">3분전</span></div>
+                    <div class="status-item"><span class="name">최*아</span><span class="phone">010-****-7712</span><span class="model">갤럭시 S26+</span><span class="badge">기기변경</span><span class="time">5분전</span></div>
+                    <div class="status-item"><span class="name">조*우</span><span class="phone">010-****-3388</span><span class="model">아이폰 17</span><span class="badge">상담예약</span><span class="time">7분전</span></div>
                 </div>
             </div>
             <div class="status-notice">
@@ -691,12 +756,51 @@
         </div>
     </section>
 
+    <!-- ===== FAQ 섹션 ===== -->
+    <section id="faq" style="background-color: #fafafa;">
+        <h2>❓ 자주 묻는 질문</h2>
+        <div style="max-width: 720px; margin: 0 auto; text-align: left;" id="faq-list">
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-q">Q. 온라인으로 신청하면 어떻게 진행되나요?</div>
+                <div class="faq-a">카톡 상담 후 원하시는 기기·요금제·색상을 확인하고, 간단한 본인 인증 절차 후 당일 또는 익일 택배로 발송됩니다. 개통까지 평균 30분 이내 완료돼요.</div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-q">Q. 공시지원금 vs 선택약정, 어떤 게 유리한가요?</div>
+                <div class="faq-a">사용 패턴과 요금제에 따라 달라집니다. 고가 요금제 사용 시 선택약정(25% 할인)이 유리한 경우가 많고, 중저가 요금제라면 공시지원금이 더 나을 수 있어요. 상담 시 최적 조건을 비교해서 안내해드립니다.</div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-q">Q. 기존 번호를 그대로 유지할 수 있나요?</div>
+                <div class="faq-a">네, 번호이동·기기변경 모두 기존 번호 유지 가능합니다. 타 통신사에서 LG U+로 번호이동 시 추가 지원금이 적용되는 경우도 있으니 상담 시 꼭 말씀해 주세요.</div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-q">Q. 고가 요금제 강제 가입이 있나요?</div>
+                <div class="faq-a">절대 없습니다. 고객님께 가장 유리한 요금제를 함께 찾아드리는 게 저희 원칙입니다. 필요 없는 부가서비스 가입도 강요하지 않아요.</div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-q">Q. 사은품은 언제 받을 수 있나요?</div>
+                <div class="faq-a">기기와 함께 동봉하여 발송되거나, 개통 확인 후 별도 발송됩니다. 사은품 종류와 지급 시기는 상담 시 정확히 안내해드립니다.</div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-q">Q. 할부 기간은 어떻게 선택하나요?</div>
+                <div class="faq-a">12개월 / 24개월 / 36개월 중 선택 가능합니다. 할부 기간이 길수록 월 부담은 줄어들지만 총 할부원금은 동일합니다. 상담 시 원하시는 조건으로 맞춰드립니다.</div>
+            </div>
+
+        </div>
+    </section>
+    <!-- ===== FAQ 섹션 끝 ===== -->
+
     <section id="trust" style="background-color: #fafafa; padding-bottom: 0;">
         <div class="trust-banner">
             <h3>💡 속임수 없는 투명한 조건</h3>
             <p>고가 요금제 강요도, 카드 발급 권유도 없이<br>오직 <strong>고객님께 가장 유리한 조건</strong>만을 제안합니다.</p>
         </div>
-        <h2 id="location-anchor">📍 가까운 매장에서 만나요</h2>
+        <h2 id="location-anchor">📍 직접 방문도 환영해요</h2>
     </section>
 
     <section id="location" style="padding-top: 20px;">
@@ -752,6 +856,13 @@
     </div>
 
     <script>
+        // FAQ 토글
+        function toggleFaq(el) {
+            const isOpen = el.classList.contains('open');
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+            if (!isOpen) el.classList.add('open');
+        }
+
         // 모달
         function openModal() {
             document.getElementById('callModal').style.display = 'flex';
