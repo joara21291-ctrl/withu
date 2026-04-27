@@ -527,7 +527,7 @@
             <div class="product-item visible flex-col" data-category="iphone">
                 <div class="product-card mb-3">
                     <div style="display:flex; justify-content:center; align-items:center; height:160px;">
-                        <img src="https://raw.githubusercontent.com/joara21291-ctrl/withu/main/아이폰 Pro.jpg" alt="iPhone 17 Pro" style="max-height:100%; object-fit:contain;">
+                        <img src="https://raw.githubusercontent.com/joara21291-ctrl/withu/main/아이폰프로.png" alt="iPhone 17 Pro" style="max-height:100%; object-fit:contain;">
                     </div>
                     <div style="margin-top:8px;">
                         <span class="badge-cyan">72만원 미친할인</span>
@@ -768,11 +768,9 @@
 
         // 상품 필터 탭
         function filterProducts(category, btn) {
-            // 탭 버튼 스타일
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
 
-            // 상품 표시/숨김
             document.querySelectorAll('.product-item').forEach(item => {
                 if (category === 'all' || item.dataset.category === category) {
                     item.classList.add('visible');
