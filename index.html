@@ -728,18 +728,14 @@
     </section>
 
     <section class="status-section" id="live-status">
-        <h2 style="font-size: 1.5rem; margin-bottom: 20px;"><i class="fa-regular fa-clock"></i> 실시간 상담 신청 현황</h2>
+ <!-- ===== 실시간 상담 현황 ===== -->
+    <section id="live-status" style="background:#fcfcfc;">
+        <h2><i class="fa-regular fa-clock"></i> 실시간 상담 신청 현황</h2>
         <div class="status-container">
             <div class="status-header">실시간 상담 신청 현황</div>
             <div class="status-list-wrapper">
                 <div class="status-list" id="rolling-list">
-                    <div class="status-item"><span class="name">최*진</span><span class="phone">010-****-9921</span><span class="model">아이폰 17 Pro</span><span class="badge">방문예약</span><span class="time">방금 전</span></div>
-                    <div class="status-item"><span class="name">정*영</span><span class="phone">010-****-1237</span><span class="model">갤럭시 S26</span><span class="badge">상담예약</span><span class="time">1분전</span></div>
-                    <div class="status-item"><span class="name">이*화</span><span class="phone">010-****-4036</span><span class="model">갤럭시 Z플립 8</span><span class="badge">상담예약</span><span class="time">1분전</span></div>
-                    <div class="status-item"><span class="name">최*현</span><span class="phone">010-****-0012</span><span class="model">갤럭시 S26+</span><span class="badge">상담예약</span><span class="time">3분전</span></div>
-                    <div class="status-item"><span class="name">최*아</span><span class="phone">010-****-7712</span><span class="model">갤럭시 S26+</span><span class="badge">기기변경</span><span class="time">5분전</span></div>
-                    <div class="status-item"><span class="name">조*우</span><span class="phone">010-****-3388</span><span class="model">아이폰 15</span><span class="badge">상담예약</span><span class="time">7분전</span></div>
-                    <div class="status-item"><span class="name">김*석</span><span class="phone">010-****-2354</span><span class="model">Z폴드 8</span><span class="badge">상담예약</span><span class="time">12분전</span></div>
+                    <!-- JavaScript로 자동 무한 생성됩니다 -->
                 </div>
             </div>
             <div class="status-notice">
@@ -888,34 +884,69 @@
             });
         }
 
-        // 실시간 상담 롤링
+        
+        // ==========================================
+        // 실시간 무한 데이터 자동 생성 및 롤링 스크립트
+        // ==========================================
+        const familyNames = ['김', '이', '박', '최', '정', '강', '조', '윤', '장', '임', '한', '오', '서', '신', '권', '황', '안', '송', '전', '홍'];
+        const givenNames = ['진', '영', '화', '현', '아', '우', '석', '민', '수', '성', '희', '훈', '서', '혜', '준', '호', '원', '경', '은', '재'];
+        const phoneMiddle = ['1234', '5678', '9921', '1237', '4036', '0012', '7712', '3388', '2354', '8890', '4512', '9081', '3311', '7620'];
+        const modelNames = ['아이폰 17 Pro', '아이폰 15', '아이폰 18 Pro', '갤럭시 S26', '갤럭시 S26+', '갤럭시 S26 울트라', '갤럭시 Z플립 8', '갤럭시 Z폴드 8'];
+        const badges = ['상담예약', '방문예약', '기기변경', '번호이동', '신규가입'];
+        const timeLabels = ['방금 전', '1분 전', '2분 전', '3분 전', '5분 전', '7분 전', '10분 전'];
+
+        // 랜덤 아이템 생성 함수
+        function createRandomStatusItem() {
+            const name = familyNames[Math.floor(Math.random() * familyNames.length)] + '*' + givenNames[Math.floor(Math.random() * givenNames.length)];
+            const phone = '010-****-' + phoneMiddle[Math.floor(Math.random() * phoneMiddle.length)];
+            const model = modelNames[Math.floor(Math.random() * modelNames.length)];
+            const badge = badges[Math.floor(Math.random() * badges.length)];
+            const time = timeLabels[Math.floor(Math.random() * timeLabels.length)];
+
+            const item = document.createElement('div');
+            item.className = 'status-item';
+            item.innerHTML = `
+                <span class="name" style="font-weight:700;">${name}</span>
+                <span class="phone" style="color:#888;">${phone}</span>
+                <span class="model" style="color:var(--primary-blue); font-weight:600;">${model}</span>
+                <span class="badge" style="text-align:center; color:#555; font-size:12px;">${badge}</span>
+                <span class="time" style="color:#ff5252; font-weight:600; text-align:right;">${time}</span>
+            `;
+            return item;
+        }
+
         window.onload = function() {
             window.scrollTo(0, 0);
             const list = document.getElementById('rolling-list');
-            const itemHeight = 60;
-            let items = list.getElementsByClassName('status-item');
-            const cloneCount = items.length;
+            const itemHeight = 60; // 아이템 1개 높이(px)
+            const initialCount = 15; // 초기 세팅할 데이터 수
 
-            if (items.length > 0) {
-                for (let i = 0; i < cloneCount; i++) {
-                    list.appendChild(items[i].cloneNode(true));
-                }
-                let currentIndex = 0;
-                setInterval(() => {
-                    currentIndex++;
-                    list.style.transition = "top 0.6s ease-in-out";
-                    list.style.top = -(currentIndex * itemHeight) + "px";
-                    if (currentIndex >= cloneCount) {
-                        setTimeout(() => {
-                            list.style.transition = "none";
-                            list.style.top = "0px";
-                            currentIndex = 0;
-                        }, 600);
-                    }
-                }, 2500);
+            // 초기에 무작위 데이터 생성하여 채우기
+            for (let i = 0; i < initialCount; i++) {
+                list.appendChild(createRandomStatusItem());
             }
+
+            let currentIndex = 0;
+
+            setInterval(() => {
+                currentIndex++;
+                list.style.transition = "top 0.6s ease-in-out";
+                list.style.top = -(currentIndex * itemHeight) + "px";
+
+                // 스크롤 시 지나간 상단 아이템을 삭제하고, 하단에 새로 무작위 아이템 추가
+                setTimeout(() => {
+                    if (currentIndex >= 1) {
+                        // 맨 위 요소 삭제 및 위치 재설정 (슬라이드 끊김 없이 계속 무한 지속)
+                        list.removeChild(list.firstElementChild);
+                        list.appendChild(createRandomStatusItem());
+                        
+                        list.style.transition = "none";
+                        currentIndex--;
+                        list.style.top = -(currentIndex * itemHeight) + "px";
+                    }
+                }, 600);
+            }, 2500);
         };
     </script>
-
 </body>
 </html>
